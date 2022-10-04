@@ -2,5 +2,5 @@
 
 ## disclaimer - game is not yet functional
 
-* Basic visual memory game
+Basic visual memory game
 
