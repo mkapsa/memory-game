@@ -42,20 +42,25 @@ for(let i = 0; i < 16; i++){
     document.querySelector(`.grid-item-${i+1}`).addEventListener('click', () => {
         playerGuess.push(i+1)
 
-        
+        if (playerGuess[playerGuess.length - 1] === gameOrder[gameOrder.length - 1]){
 
-        document.querySelector(`.grid-item-${i+1}`).style.backgroundColor = 'blueviolet'
+            document.querySelector(`.grid-item-${i+1}`).style.backgroundColor = 'blueviolet'
 
-        const griditems = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]
+            const griditems = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]
 
-        for(let y = 0; y < 15; y++){
-            document.querySelector(`.grid-item-${griditems.filter(number => number != i+1)[y]}`).style.backgroundColor = 'white'
-        }    
-        
-        console.log(playerGuess[i])
-        console.log(playerGuess)
-        
-        // console.log(gameOrder[i])
+            for(let y = 0; y < 15; y++){
+                document.querySelector(`.grid-item-${griditems.filter(number => number != i+1)[y]}`).style.backgroundColor = 'white'
+            }    
+
+            console.log(true)
+        }
+        else {
+
+            console.log(false)
+        }
+
+        // console.log(playerGuess[playerGuess.length - 1])
+        // console.log(gameOrder[gameOrder.length - 1])
     })
 }
 
