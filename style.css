@@ -1,0 +1,57 @@
+*{
+    margin: 0;
+}
+
+body{
+   display: grid;
+   place-items: center;
+}
+
+/* light up animation */
+
+@keyframes lightup {
+    0% {
+        background-color: white;
+    }
+    25% {
+        background-color: blueviolet;
+    }
+    50% {
+        background-color: blueviolet;
+    }
+    75% {
+        background-color: blueviolet;
+    }
+    100% {
+        background-color: white;
+    }
+}
+
+.grid-container{
+    display: inline-grid;
+    grid-template-columns: repeat(4, 1fr);
+
+    width: 30%;
+    aspect-ratio: 1/1;    
+
+    position: absolute;
+    top: 15%;
+    
+    outline: 1px solid black;
+}
+
+.grid-item{
+    border: 1px solid black;
+}
+
+.grid-item:hover{
+    background-color: blueviolet;
+    transition: 0.5s;
+}
+
+
+
+
+
+
+
