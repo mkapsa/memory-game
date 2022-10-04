@@ -17,15 +17,36 @@ const shuffle = (array) => {
     return array.sort(() => Math.random() - 0.5)
 }
 
+// delay function
+
+
+
 // game logic
 
-let gameOrder = [Math.floor(Math.random() * (16 - 1 + 1)) + 1]
+let gameOrder = [Math.floor(Math.random() * (16 - 1 + 1)) + 1, 5,6,7,8]
 
 console.log(gameOrder)
 
-for(let i = 0; i < gameOrder.length; i++){
-    document.querySelector(`.grid-item-${gameOrder[i]}`).style.animation = 'lightup 2s'
+let i = 0
+
+const orderloop = () => {
+    setTimeout(() => {
+
+        document.querySelector(`.grid-item-${gameOrder[i]}`).style.animation = 'lightup 1s'
+
+        i++
+        if(i < gameOrder.length){
+            orderloop()
+        }
+    }, 700);
 }
+
+orderloop()
+
+// for(let i = 0; i < gameOrder.length; i++){
+//     document.querySelector(`.grid-item-${gameOrder[i]}`).style.animation = 'lightup 2s'
+
+// }
 
 
 
