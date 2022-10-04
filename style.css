@@ -31,7 +31,7 @@ body{
     display: inline-grid;
     grid-template-columns: repeat(4, 1fr);
 
-    width: 30%;
+    height: 70%;
     aspect-ratio: 1/1;    
 
     position: absolute;
