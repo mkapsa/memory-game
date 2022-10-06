@@ -1,15 +1,24 @@
 *{
     margin: 0;
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 body{
-   display: grid;
-   place-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 5vh;
+}
+
+.game-section{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: auto;
 }
 
 /* light up animation */
 
-@keyframes lightup {
+@keyframes lightup {               
     0% {
         background-color: white;
     }
@@ -31,17 +40,15 @@ body{
     display: inline-grid;
     grid-template-columns: repeat(4, 1fr);
 
-    height: 70%;
+    height: 60vh;
     aspect-ratio: 1/1;    
 
-    position: absolute;
-    top: 15%;
-    
     outline: 1px solid black;
 }
 
 .grid-item{
     border: 1px solid black;
+    transition: 0.5s;
 }
 
 .grid-item:hover{
@@ -49,9 +56,9 @@ body{
     transition: 0.5s;
 }
 
-
-
-
-
-
-
+.score{
+    width: 100%;
+    text-align: center;
+    line-height: 10vh;
+    font-size: 40px;
+}
