@@ -51,11 +51,6 @@ body{
     transition: 0.5s;
 }
 
-.grid-item:hover{
-    background-color: blueviolet;
-    transition: 0.5s;
-}
-
 .score{
     width: 100%;
     text-align: center;

@@ -64,7 +64,7 @@ for(let i = 0; i < 16; i++){
             for(let x = 0; x < 15; x++){
                 document.querySelector(`.grid-item-${items.filter(e => e != i+1)[x]}`).style.backgroundColor = null
             }
-            
+
             currentIndex++
 
             if(currentIndex === gameOrder.length){
@@ -78,7 +78,7 @@ for(let i = 0; i < 16; i++){
             }
 
         } else {
-
+            
             console.log(false)
             playerGuess = []
             count = playerGuess.length
