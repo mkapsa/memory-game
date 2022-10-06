@@ -51,7 +51,7 @@ function animate(gameOrder) {
     },700*gameOrder.length)
 }
 
-animate(gameOrder)
+setTimeout(() => {animate(gameOrder)}, 700)
 
 for(let i = 0; i < 16; i++){
     document.querySelector(`.grid-item-${i+1}`).addEventListener('click', () => {
