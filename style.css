@@ -57,3 +57,7 @@ body{
     line-height: 15vh;
     font-size: 40px;
 }
+
+.click-disabled{
+    pointer-events: none;
+}

@@ -31,25 +31,27 @@ let playerGuess = []
 let count = playerGuess.length
 let currentIndex = 0 
 
-const orderloop = () => {
+function animate(gameOrder) {
+
+    gameOrder.forEach((tile, index) => {
+        setTimeout(() => {
+            document.querySelectorAll(`.grid-item`).forEach(e => e.style.backgroundColor = '')
+        
+            document.querySelector(`.grid-item-${tile}`).style.animation = ''
+            document.querySelector(`.grid-item-${tile}`).offsetWidth
+            document.querySelector(`.grid-item-${tile}`).style.animation = 'lightup 1s'
+        }, 700*index)
+    })
+
+    document.querySelectorAll('.grid-item').forEach(e => e.classList.add('click-disabled'))
 
     setTimeout(() => {
-        
-        document.querySelectorAll(`.grid-item`).forEach(e => e.style.backgroundColor = '')
-        
-        document.querySelector(`.grid-item-${gameOrder[count]}`).style.animation = ''
-        document.querySelector(`.grid-item-${gameOrder[count]}`).offsetWidth
-        document.querySelector(`.grid-item-${gameOrder[count]}`).style.animation = 'lightup 1s'
-        count++
 
-        if(count < gameOrder.length){
-            orderloop()
-        }
-    }, 700)
-
+        document.querySelectorAll('.grid-item').forEach(e => e.classList.remove('click-disabled'))
+    },700*gameOrder.length)
 }
 
-orderloop()      
+animate(gameOrder)
 
 for(let i = 0; i < 16; i++){
     document.querySelector(`.grid-item-${i+1}`).addEventListener('click', () => {
@@ -74,7 +76,7 @@ for(let i = 0; i < 16; i++){
                 gameOrder.push(Math.floor(Math.random() * (16 - 1 + 1)) + 1)
                 count = 0
                 currentIndex = 0
-                orderloop()
+                setTimeout(() => {animate(gameOrder)}, 700)
             }
 
         } else {
@@ -89,7 +91,7 @@ for(let i = 0; i < 16; i++){
             currentIndex = 0
             
             gameOrder = [Math.floor(Math.random() * (16 - 1 + 1)) + 1]            
-            orderloop()
+            setTimeout(() => {animate(gameOrder)}, 700)
         }
     })
 }
