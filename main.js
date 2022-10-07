@@ -1,7 +1,7 @@
 // score section
 
 let playerScore = 0
-let playerHighScore = 0
+let playerHighScore = localStorage.getItem('highscore')
 
 const score = document.createElement('section')
 document.body.append(score)
