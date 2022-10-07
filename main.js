@@ -115,6 +115,6 @@ const load = () => {
 }
 
 window.onload = () => {
-    // save()
+    save()
     load()
 }
