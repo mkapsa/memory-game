@@ -114,4 +114,7 @@ const load = () => {
     highscore.innerHTML = `High score: ${playerHighScore}`
 }
 
-window.onload = () => {load()}
+window.onload = () => {
+    // save()
+    load()
+}
