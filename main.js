@@ -1,11 +1,17 @@
 // score section
 
 let playerScore = 0
+let playerHighScore = 0
 
 const score = document.createElement('section')
 document.body.append(score)
 score.classList.add('score')
 score.innerHTML = `Score: ${playerScore}`
+
+const highscore = document.createElement('section')
+document.body.append(highscore)
+highscore.classList.add('highscore')
+highscore.innerHTML = `High score: ${playerHighScore}`
 
 // 4x4 grid visual elements
 
@@ -51,7 +57,7 @@ function animate(gameOrder) {
     },700*gameOrder.length)
 }
 
-setTimeout(() => {animate(gameOrder)}, 700)
+setTimeout(() => {animate(gameOrder)}, 1000)
 
 for(let i = 0; i < 16; i++){
     document.querySelector(`.grid-item-${i+1}`).addEventListener('click', () => {
@@ -72,27 +78,40 @@ for(let i = 0; i < 16; i++){
             if(currentIndex === gameOrder.length){
                 playerScore += 1
                 score.innerHTML = `Score: ${playerScore}`    
+                save()
             
                 gameOrder.push(Math.floor(Math.random() * (16 - 1 + 1)) + 1)
                 count = 0
                 currentIndex = 0
-                setTimeout(() => {animate(gameOrder)}, 700)
+                setTimeout(() => {animate(gameOrder)}, 1000)
             }
 
         } else {
             
-            console.log(false)
             playerGuess = []
             count = playerGuess.length
 
             playerScore = 0
             score.innerHTML = `Score: ${playerScore}`
+            save()
 
             currentIndex = 0
             
             gameOrder = [Math.floor(Math.random() * (16 - 1 + 1)) + 1]            
-            setTimeout(() => {animate(gameOrder)}, 700)
+            setTimeout(() => {animate(gameOrder)}, 1000)
         }
     })
 }
 
+const save = () => {
+    playerHighScore = Math.max(playerScore, playerHighScore)
+    highscore.innerHTML = `High score: ${playerHighScore}`
+    localStorage.setItem('highscore', playerHighScore)
+}
+
+const load = () => {
+    playerHighScore = localStorage.getItem('highscore')
+    highscore.innerHTML = `High score: ${playerHighScore}`
+}
+
+window.onload = () => {load()}
