@@ -42,10 +42,13 @@ function animate(gameOrder) {
     gameOrder.forEach((tile, index) => {
         setTimeout(() => {
             document.querySelectorAll(`.grid-item`).forEach(e => e.style.backgroundColor = '')
+
+            const gridItem = document.querySelector(`.grid-item-${tile}`)
         
-            document.querySelector(`.grid-item-${tile}`).style.animation = ''
-            document.querySelector(`.grid-item-${tile}`).offsetWidth
-            document.querySelector(`.grid-item-${tile}`).style.animation = 'lightup 1s'
+            gridItem.style.animation = ''
+            gridItem.offsetWidth
+            gridItem.style.animation = 'lightup 1s'
+
         }, 700*index)
     })
 
@@ -65,13 +68,11 @@ for(let i = 0; i < 16; i++){
 
         if (gameOrder[currentIndex] === i+1){
 
-            document.querySelector(`.grid-item-${i+1}`).style.backgroundColor = 'blueviolet'
+            const gridItem = document.querySelector(`.grid-item-${i+1}`)
 
-            const items = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]
-
-            for(let x = 0; x < 15; x++){
-                document.querySelector(`.grid-item-${items.filter(e => e != i+1)[x]}`).style.backgroundColor = null
-            }
+            gridItem.style.animation = ''
+            gridItem.offsetWidth
+            gridItem.style.animation = 'lightup 1s'
 
             currentIndex++
 
