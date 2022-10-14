@@ -72,7 +72,7 @@ for(let i = 0; i < 16; i++){
 
             gridItem.style.animation = ''
             gridItem.offsetWidth
-            gridItem.style.animation = 'lightup 1s'
+            gridItem.style.animation = 'lightup 0.7s'
 
             currentIndex++
 
